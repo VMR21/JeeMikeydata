@@ -16,11 +16,6 @@ app.use((req, res, next) => {
   next();
 });
 
-function maskUsername(username) {
-  if (username.length <= 4) return username;
-  return username.slice(0, 2) + "***" + username.slice(-2);
-}
-
 function getDateRange(monthOffset = 0) {
   const now = new Date();
   const year = now.getUTCFullYear();
@@ -50,7 +45,7 @@ async function fetchLeaderboardData(monthOffset = 0) {
   if (top10.length >= 2) [top10[0], top10[1]] = [top10[1], top10[0]];
 
   return top10.map(entry => ({
-    username: maskUsername(entry.username),
+    username: entry.username, // unmasked
     wagered: Math.round(parseFloat(entry.wagered_amount)),
     weightedWager: Math.round(parseFloat(entry.wagered_amount)),
   }));
