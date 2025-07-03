@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 const app = express();
 const PORT = process.env.PORT || 3000;
 const SELF_URL = "https://jeemikeydata.onrender.com/leaderboard/top14";
-const API_KEY = "Ye3RUFM9dUiI9vCe2Bash9BwwV5EU184";
+const API_KEY = "RdzfrIAKpbYJeeVvUPwdWRn389gb8vfw";
 
 let cachedCurrent = [];
 let cachedPrevious = [];
